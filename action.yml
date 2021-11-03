@@ -5,5 +5,5 @@ runs:
   using: "composite"
   steps:
     - name: Run your tests
-    shell: bash
     run: npm test
+    shell: bash
