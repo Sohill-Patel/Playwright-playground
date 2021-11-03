@@ -1,12 +1,10 @@
 name: E2E Tests
 description: Run E2E tests on Salesforce
 
-steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-node@v2
-    with:
-      node-version: '16.3.0'
-  - name: Install operating system dependencies
-    run: npx playwright install-deps
-  - name: Run your tests
+runs:
+  using: "composite"
+  steps:
+    steps:    
+    - name: Run your tests
+    shell: bash
     run: npm test
