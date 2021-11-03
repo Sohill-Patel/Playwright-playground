@@ -1,9 +1,0 @@
-name: E2E Tests
-description: Run E2E tests on Salesforce
-
-runs:
-  using: "composite"
-  steps:
-    - name: Run your tests
-    run: npm test
-    shell: bash
