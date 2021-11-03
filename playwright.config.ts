@@ -17,7 +17,6 @@ const testConfig: PlaywrightTestConfig = {
   reporter: [
     ["line"],
     ["allure-playwright"],
-    ["html", { outputFolder: 'html-report' }],
   ],
 };
 export default testConfig;
