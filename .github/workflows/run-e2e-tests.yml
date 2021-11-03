@@ -11,8 +11,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.3.0'
-      - uses: microsoft/playwright-github-action@v1
-
       - name: Install operating system dependencies
         run: npm install
       - name: Run your tests
