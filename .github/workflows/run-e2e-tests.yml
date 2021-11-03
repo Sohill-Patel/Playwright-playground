@@ -1,6 +1,8 @@
 name: Playwright tests
+
 on: 
   pull_request:
+
 jobs:
   e2e-tests:
     runs-on: ubuntu-latest 
@@ -10,6 +12,6 @@ jobs:
         with:
           node-version: '16.3.0'
       - name: Install operating system dependencies
-        run: npx playwright install-deps
+        run: npm install
       - name: Run your tests
         run: npm test
