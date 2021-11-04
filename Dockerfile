@@ -5,4 +5,5 @@ VOLUME "$(pwd)":/srv/playwright-tests
 VOLUME /srv/playwright-tests/node_modules 
 WORKDIR /srv/playwright-tests
 RUN ["/bin/bash", "-c","npm install"]
-ENTRYPOINT [ "/runtests.sh" ]
+RUN ["ls", "-ltr"]
+ENTRYPOINT [ "runtests.sh" ]
