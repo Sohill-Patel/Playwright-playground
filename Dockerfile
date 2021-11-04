@@ -4,4 +4,4 @@ COPY . /srv/playwright-tests
 VOLUME /srv/playwright-tests/node_modules 
 WORKDIR /srv/playwright-tests
 RUN ["/bin/bash", "-c","npm install"]
-CMD ["/bin/bash", "-c", "npm test"]
+ENTRYPOINT [ "runtests.sh" ]
