@@ -1,8 +1,15 @@
 #Get base image
 FROM  mcr.microsoft.com/playwright:v1.16.0-focal
-COPY . /srv/playwright-tests 
-VOLUME /srv/playwright-tests 
-VOLUME /srv/playwright-tests/node_modules 
-WORKDIR /srv/playwright-tests
-RUN ["/bin/bash", "-c","npm install"]
-ENTRYPOINT ["/bin/bash", "-c", "/srv/playwright-tests/runtests.sh" ]
+
+COPY /fixture /srv/salesforce-playwright-tests 
+COPY /tests /srv/salesforce-playwright-tests 
+COPY /package-lock.json /srv/salesforce-playwright-tests 
+COPY /package.json /srv/salesforce-playwright-tests 
+
+WORKDIR /srv/salesforce-playwright-tests
+
+RUN cd /srv/salesforce-playwright-tests/ 
+RUN npm install
+
+CMD ["npm", "run", "test"]
+#ENTRYPOINT ["/bin/bash", "-c", "/srv/salesforce-playwright-tests/runtests.sh" ]
