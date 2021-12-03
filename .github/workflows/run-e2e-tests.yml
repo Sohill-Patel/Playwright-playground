@@ -12,4 +12,4 @@ jobs:
       - name: Install operating system dependencies
         run: npm ci
       - name: Run your tests
-        run: npm test
+        run: npm test2

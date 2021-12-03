@@ -11,3 +11,12 @@ docker run -it --rm --init \
   --workdir /srv/playwright-tests \
     mcr.microsoft.com/playwright:v1.16.0-focal \
     /bin/bash -c 'npm ci && npm test'
+
+
+# docker run -it --rm --init \
+#   --ipc host \
+#   --env DEBUG \
+#   --env ENVIRONMENT \
+#   --env PWDEBUG \
+#     mcr.microsoft.com/playwright:v1.16.1-focal \
+#     /bin/bash -c 'ls -ltr'

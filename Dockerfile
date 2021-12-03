@@ -1,5 +1,5 @@
 #Get base image
-FROM  mcr.microsoft.com/playwright:v1.16.0-focal
+FROM  mcr.microsoft.com/playwright:v1.17.1-focal
 
 COPY /fixture /srv/salesforce-playwright-tests 
 COPY /tests /srv/salesforce-playwright-tests 
@@ -12,5 +12,5 @@ WORKDIR /srv/salesforce-playwright-tests
 RUN cd /srv/salesforce-playwright-tests/ 
 RUN npm install
 
-CMD ["npm", "run", "test"]
+CMD ["npm", "run", "test1"]
 #ENTRYPOINT ["/bin/bash", "-c", "/srv/salesforce-playwright-tests/runtests.sh" ]
