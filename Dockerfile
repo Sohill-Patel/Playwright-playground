@@ -12,5 +12,5 @@ WORKDIR /srv/salesforce-playwright-tests
 RUN cd /srv/salesforce-playwright-tests/ 
 RUN npm install
 
-CMD ["npm", "run", "test1"]
+CMD ["npm", "run", "test"]
 #ENTRYPOINT ["/bin/bash", "-c", "/srv/salesforce-playwright-tests/runtests.sh" ]

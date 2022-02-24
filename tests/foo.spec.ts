@@ -8,5 +8,7 @@ test('basic test 1', async ({ }) => {
   const page = await (await browser.newContext()).newPage();
   await page.goto('https://playwright.dev/');
   const title = page.locator('.navbar__inner .navbar__title');
+  const title2 = page.locator('.navbar__inner .navbar__item ').first();
+  console.log(await title2.getAttribute("href"))
   await expect(title).toHaveText('Playwright');
 });
