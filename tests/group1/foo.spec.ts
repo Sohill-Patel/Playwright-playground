@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { chromium } from 'playwright';
+import { LoginPage } from '../../page/Login.page';
 
 test('basic test 1', async ({ }) => {
   const browser = await chromium.launch({
@@ -11,4 +12,9 @@ test('basic test 1', async ({ }) => {
   const title2 = page.locator('.navbar__inner .navbar__item ').first();
   console.log(await title2.getAttribute("href"))
   await expect(title).toHaveText('Playwright');
+});
+
+test.only('Method hierarchy', ({ page }) => {
+  const login: LoginPage = new LoginPage(page);
+  login.WhichMethodisCalled();
 });

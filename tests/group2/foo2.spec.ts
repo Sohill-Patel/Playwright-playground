@@ -1,5 +1,5 @@
 // import { test, expect } from '@playwright/test';
-import test, {expect } from '../fixture/testFixture';
+import test, {expect } from '../../fixture/testFixture';
  
 test('basic test 2', async ({ page, pName}) => {
   console.log(pName);

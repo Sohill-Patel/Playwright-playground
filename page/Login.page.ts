@@ -8,4 +8,13 @@ export class LoginPage {
 		this.page = page;
 		
 	}
+
+	WhichMethodisCalled() {
+		this.showData();
+	}
+
+
+	showData() {
+		console.log("super method");
+	}
 }

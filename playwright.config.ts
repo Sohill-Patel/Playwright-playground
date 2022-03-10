@@ -14,14 +14,17 @@ const testConfig: PlaywrightTestConfig<Profile> = {
       slowMo: 900,
     },
   },
+  testDir:"./tests/",
   projects: [
     {
       name: 'Prof1',
       use: { pName: 'Profile 1 tests'},
+      testDir: "./tests/group1/"
     },
     {
       name: 'Prof2',
       use: { pName: 'Profile 2 tests'},
+      testDir: "./tests/group2/"
     }
   ],
   retries: 1,
