@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "allure-playwright": "^2.0.0-beta.15",
+    "moment": "^2.29.1",
     "playwright": "^1.19.1",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "yup": "^0.32.11"
   }
 }

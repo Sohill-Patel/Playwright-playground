@@ -23,7 +23,13 @@ const testConfig: PlaywrightTestConfig<Profile> = {
     },
     {
       name: 'Prof2',
-      use: { pName: 'Profile 2 tests'},
+      use: {
+        pName: 'Profile 2 tests',
+        video: "off",
+        trace: "off",
+        screenshot: "off"
+      },
+      retries: 0,
       testDir: "./tests/group2/"
     }
   ],
