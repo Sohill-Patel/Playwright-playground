@@ -1,0 +1,47 @@
+
+
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+echo ""
+echo "Collecting Environment variables from secrets manager"
+echo ""
+
+AWS_ROLE_ARN=arn:aws:iam::244424544780:role/salesforce_secrets
+
+# Assuming the ${AWS_ROLE_ARN} role
+AWS_STS=($(aws sts assume-role --role-arn "${AWS_ROLE_ARN}" --role-session-name=salesforce-playwright-script --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output=text))
+
+# Use this syntax for array access as it works in both bash (0-based) and zsh (1-based)
+export AWS_ACCESS_KEY_ID="${AWS_STS[@]:0:1}"
+export AWS_SECRET_ACCESS_KEY="${AWS_STS[@]:1:1}"
+export AWS_SESSION_TOKEN="${AWS_STS[@]:2:1}"
+
+# Test are only run on staging
+export ENVIRONMENT="staging"
+
+export SALESFORCE_PLAYWRIGHT_USER=$(aws secretsmanager get-secret-value --secret-id salesforce-e2e-tests-username --query SecretString --output text)
+export SALESFORCE_PLAYWRIGHT_PASSWORD=$(aws secretsmanager get-secret-value --secret-id salesforce-e2e-tests-password --query SecretString --output text)
+export MAILTRAP_TOKEN=$(aws secretsmanager get-secret-value --secret-id salesforce-e2e-tests-mailtrap --query SecretString --output text)
+
+unset AWS_ACCESS_KEY_ID 
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN
+
+echo ""
+echo "Collecting Environment variables from parameter store "
+echo ""
+
+AWS_ROLE_ARN=arn:aws:iam::244424544780:role/salesforce_secrets
+
+# Assuming the ${AWS_ROLE_ARN} role
+AWS_STS=($(aws sts assume-role --role-arn "${AWS_ROLE_ARN}" --role-session-name=salesforce-playwright-script --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output=text))
+
+# Use this syntax for array access as it works in both bash (0-based) and zsh (1-based)
+export AWS_ACCESS_KEY_ID="${AWS_STS[@]:0:1}"
+export AWS_SECRET_ACCESS_KEY="${AWS_STS[@]:1:1}"
+export AWS_SESSION_TOKEN="${AWS_STS[@]:2:1}"
+
+# Test are only run on staging
+export ENVIRONMENT="staging"
